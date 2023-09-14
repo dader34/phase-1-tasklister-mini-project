@@ -10,7 +10,7 @@ body {
   background: linear-gradient(pink, violet);
 }
 
-button {
+form > button {
   font-size: 7px;
 }
 
