@@ -11,29 +11,31 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 const createTask = (txt, pos) => {
+  const container = document.createElement("div")
   console.log(pos)
-  let list = document.createElement("li")
-  let task = document.createElement("p")
+  const list = document.createElement("li")
+  const task = document.createElement("p")
   task.textContent = txt
-  let removeTask = document.createElement("button")
+  const removeTask = document.createElement("button")
   removeTask.textContent = "Complete"
   removeTask.addEventListener("click", () => {
     list.remove()
   })
-  let edit = document.createElement("button")
+  const edit = document.createElement("button")
   edit.textContent = "edit"
   edit.addEventListener("click", () => {
-    edit.parentNode = null
-    let textInput = document.createElement("input")
+    edit.style.display = "none"
+    const textInput = document.createElement("input")
     textInput.type = "text"
     textInput.placeholder = "updated text"
-    let completed = document.createElement("button")
+    const completed = document.createElement("button")
     completed.textContent = "update"
     list.append(textInput, completed)
     completed.addEventListener("click", () => {
       task.textContent = textInput.value
       textInput.remove()
       completed.remove()
+      edit.style.display = "inline"
       list.append(edit)
     })
   })
